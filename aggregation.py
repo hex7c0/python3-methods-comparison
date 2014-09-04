@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 
 '''
-Created on 07/gen/2014
-
 https://wiki.python.org/moin/PythonSpeed/PerformanceTips#Data_Aggregation
 
 Function call overhead in Python is relatively high,
