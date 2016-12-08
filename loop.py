@@ -21,7 +21,18 @@ def normal():
         a.append(str(i))
     return a
 
-def nodots():
+def exception():
+
+    a = []
+    try:
+        for i in lst:
+            a.append(str(i))
+    except Exception as e:
+        raise
+    finally:
+        return a
+
+def no_dots():
 
     a = []
     fx = a.append
@@ -29,7 +40,7 @@ def nodots():
         fx(str(i))
     return a
 
-def nodots_local():
+def no_dots_local():
 
     local_lst = [0, 11, 33, 44, 55, 66, 77, 88, 99, 0, 'foo', 'pippo']
     a = []
@@ -60,11 +71,14 @@ if __name__ == '__main__':
     jointimer = timeit.Timer('normal()', 'from __main__ import normal')
     print ('Normal method took %f seconds' % jointimer.timeit())
 
-    jointimer = timeit.Timer('nodots()', 'from __main__ import nodots')
-    print ('Nodots method took %f seconds' % jointimer.timeit())
+    jointimer = timeit.Timer('exception()', 'from __main__ import exception')
+    print ('Exception method took %f seconds' % jointimer.timeit())
 
-    jointimer = timeit.Timer('nodots_local()', 'from __main__ import nodots_local')
-    print ('NodotsLocal method took %f seconds' % jointimer.timeit())
+    jointimer = timeit.Timer('no_dots()', 'from __main__ import no_dots')
+    print ('NoDots method took %f seconds' % jointimer.timeit())
+
+    jointimer = timeit.Timer('no_dots_local()', 'from __main__ import no_dots_local')
+    print ('NoDotsLocal method took %f seconds' % jointimer.timeit())
 
     jointimer = timeit.Timer('mapp()', 'from __main__ import mapp')
     print ('Mapp method took %f seconds' % jointimer.timeit())
@@ -73,6 +87,6 @@ if __name__ == '__main__':
     print ('Union method took %f seconds' % jointimer.timeit())
 
     # test
-    if(normal() == nodots() == nodots_local() == union()):
+    if(normal() == exception() == no_dots() == no_dots_local() == union()):
         quit()
     quit('Fail')
