@@ -9,7 +9,7 @@ cache: pip
 install:
   -
 script:
-  - test.sh
+  - ./test.sh
 notifications:
   email:
     on_success: never
