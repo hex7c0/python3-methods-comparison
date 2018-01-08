@@ -9,7 +9,7 @@ cache: pip
 install:
   -
 script:
-  - python3 for f in *.py; do echo "$f"; python3 "$f"; done
+  - test.sh
 notifications:
   email:
     on_success: never
